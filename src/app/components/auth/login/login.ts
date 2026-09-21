@@ -15,9 +15,23 @@ export class Login {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)])
   });
-  login() {
-    if (this.loginForm.invalid) {
-      alert('Please enter valid email and password');
+  login(email: string, password: string):boolean {
+    const user = JSON.parse(localStorage.getItem('user') || 'null');
+    const admin = JSON.parse(localStorage.getItem('admin') || 'null');
+    if (user && user.email === email && user.password === password) {
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('role', user.role);
+      alert('Login successful!');
+      return true;
+    } else if (admin && admin.email === email && admin.password === password) {
+      localStorage.setItem('isLoggedIn', 'true');
+      localStorage.setItem('role', admin.role);
+      alert('Admin login successful!');
+      return true;
+    }       
+    else {
+      alert('Invalid email or password');
+      return false;
     }
   }
-}
+} 

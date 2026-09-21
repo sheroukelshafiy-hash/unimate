@@ -1,0 +1,158 @@
+
+<div class="register-page d-flex justify-content-center align-items-center min-vh-100 py-5">
+
+  <div class="col-md-10 col-lg-10 p-4 border rounded shadow register_form">
+
+    <h2 class="text-center mb-4 text-warning-emphasis">
+      Create Account
+    </h2>
+
+    <form (ngSubmit)="register()" [formGroup]="registerForm">
+
+      <div class="row">
+
+        <div class="form-group mb-3 col-md-6">
+          <label for="name" class="form-label text-warning-emphasis">
+            Name:
+          </label>
+
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            [formControl]="registerForm.controls.name"
+            name="name"
+            required>
+        </div>
+
+        <div class="form-group mb-3 col-md-6">
+          <label for="email" class="form-label text-warning-emphasis">
+            Email:
+          </label>
+
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            [formControl]="registerForm.controls.email"
+            name="email"
+            required>
+        </div>
+
+        <div class="form-group mb-3 col-md-6">
+          <label for="phone" class="form-label text-warning-emphasis">
+            Phone:
+          </label>
+
+          <input
+            type="text"
+            class="form-control"
+            id="phone"
+            [formControl]="registerForm.controls.phone"
+            name="phone"
+            required>
+        </div>
+
+        <div class="form-group mb-3 col-md-6">
+          <label for="studentId" class="form-label text-warning-emphasis">
+            Student ID:
+          </label>
+
+          <input
+            type="text"
+            class="form-control"
+            id="studentId"
+            [formControl]="registerForm.controls.studentId"
+            name="studentId"
+            required>
+        </div>
+
+        <div class="form-group mb-3 col-md-6">
+          <label for="university" class="form-label text-warning-emphasis">
+            University:
+          </label>
+
+          <input
+            type="text"
+            class="form-control"
+            id="university"
+            [formControl]="registerForm.controls.university"
+            name="university"
+            required>
+        </div>
+
+        <div class="form-group mb-3 col-md-6">
+          <label for="faculty" class="form-label text-warning-emphasis">
+            Faculty:
+          </label>
+
+          <input
+            type="text"
+            class="form-control"
+            id="faculty"
+            [formControl]="registerForm.controls.faculty"
+            name="faculty"
+            required>
+        </div>
+
+        
+
+        <div class="form-group mb-3 col-md-6">
+          <label for="level" class="form-label text-warning-emphasis">
+            Level:
+          </label>
+
+          <input
+            type="text"
+            class="form-control"
+            id="level"
+            [formControl]="registerForm.controls.level"
+            name="level"
+            required>
+        </div>
+
+        <div class="form-group mb-3 col-md-6">
+          <label for="password" class="form-label text-warning-emphasis">
+            Password:
+          </label>
+
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            [formControl]="registerForm.controls.password"
+            name="password"
+            required>
+        </div>
+
+        <div class="form-group mb-3 col-md-6">
+          <label for="confirmPassword" class="form-label text-warning-emphasis">
+            Confirm Password:
+          </label>
+
+          <input
+            type="password"
+            class="form-control"
+            id="confirmPassword"
+            [formControl]="registerForm.controls.confirmPassword"
+            name="confirmPassword"
+            required>
+        </div>
+
+      </div>
+
+      <button type="submit" class="btn btn-dark w-100 mt-2">
+        Register
+      </button>
+
+      <p class="text-center mt-3">
+        Already have an account?
+        <a routerLink="/login">Login</a>
+      </p>
+
+    </form>
+
+  </div>
+
+</div>
+

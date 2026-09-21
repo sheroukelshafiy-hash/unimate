@@ -1,0 +1,104 @@
+<div class="profile-page min-vh-100 py-5">
+
+  <div class="container">
+
+    <div class="card shadow border-0 profile-card mx-auto">
+
+      <div class="card-body p-4">
+
+        <div class="text-center mb-4">
+
+          <div class="profile-icon rounded-circle bg-dark text-white d-flex justify-content-center align-items-center mx-auto mb-3">
+            
+          </div>
+
+          <h2 class="mb-1">{{ user?.name }}</h2>
+
+        </div>
+
+        <hr>
+
+        <h5 class="mb-3 text-warning-emphasis">
+          Personal Information
+        </h5>
+
+        <div class="row">
+
+          <div class="col-md-6 mb-3">
+            <small class="text-muted">Full Name</small>
+            <p class="fw-semibold">
+              {{ user?.name }}
+            </p>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <small class="text-muted">Email</small>
+            <p class="fw-semibold">
+              {{ user?.email }}
+            </p>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <small class="text-muted">Phone</small>
+            <p class="fw-semibold">
+              {{ user?.phone }}
+            </p>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <small class="text-muted">Student ID</small>
+            <p class="fw-semibold">
+              {{ user?.studentId }}
+            </p>
+          </div>
+
+        </div>
+
+        <hr>
+
+        <h5 class="mb-3 text-warning-emphasis">
+          Academic Information
+        </h5>
+
+        <div class="row">
+
+          <div class="col-md-6 mb-3">
+            <small class="text-muted">University</small>
+            <p class="fw-semibold">
+              {{ user?.university }}
+            </p>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <small class="text-muted">Faculty</small>
+            <p class="fw-semibold">
+              {{ user?.faculty }}
+            </p>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <small class="text-muted">Level</small>
+            <p class="fw-semibold">
+              {{ user?.level }}
+            </p>
+          </div>
+
+        </div>
+
+        <hr>
+
+        <h5 class="mb-3 text-warning-emphasis">
+          Account Settings
+        </h5>
+
+        <button type="button" class="btn btn-dark w-100 mt-3" (click)="logout()">
+           Logout
+         </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

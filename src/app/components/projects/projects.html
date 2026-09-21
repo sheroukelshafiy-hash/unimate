@@ -1,0 +1,88 @@
+<div class="mb-4">
+
+  <input
+    type="text"
+    placeholder="Project Name"
+    class="form-control mb-2"
+    [(ngModel)]="newProject.name"
+  >
+
+  <input
+    type="text"
+    placeholder="Owner"
+    class="form-control mb-2"
+    [(ngModel)]="newProject.owner"
+  >
+
+  <select
+    class="form-select mb-2"
+    [(ngModel)]="newProject.status"
+  >
+    <option value="Active">Active</option>
+    <option value="Pending">Pending</option>
+  </select>
+
+  <button class="btn btn-success" (click)="editingProjectId === null ? addProject() : updateProject()">
+  {{ editingProjectId === null ? 'Add Project' : 'Update Project' }}
+  </button>
+</div>
+
+<div class="container mt-4">
+
+  <h2>Manage Projects</h2>
+
+  <p class="text-muted">
+    View and manage UniMate projects
+  </p>
+
+  <div class="table-responsive">
+
+    <table class="table table-hover">
+
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Project Name</th>
+          <th>Owner</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        @for (project of projects; track project.id) {
+
+          <tr>
+
+            <td>{{ project.id }}</td>
+
+            <td>{{ project.name }}</td>
+
+            <td>{{ project.owner }}</td>
+
+            <td>{{ project.status }}</td>
+
+            <td>
+
+              <button class="btn btn-primary btn-sm" (click)="editProject(project)">
+                Edit
+              </button>
+
+              <button class="btn btn-danger btn-sm ms-2" (click)="deleteProject(project.id)">
+                Delete
+              </button>
+
+            </td>
+
+          </tr>
+
+        }
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

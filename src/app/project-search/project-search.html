@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row m-3 align-items-center search-toolbar">
+
+    <div class="col-md-8">
+      <input type="text" placeholder="Search For Students..." class="form-control search-input mb-3 mb-md-0"
+        [(ngModel)]="dataService.searchText">
+    </div>
+
+    <div class="col-md-4">
+      <select class="form-select search-select" [(ngModel)]="dataService.selectedSort">
+        <option value="default">Sort By</option>
+        <option value="title-asc">Title:A to Z</option>
+        <option value="title-desc">Title:Z to A</option>
+        <option value="newest">Newest</option>
+      </select>
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+  <div class="row g-4">
+    @for (project of dataService.filteredProjects(); track $index) {
+    <div class="col-md-4 mb-3">
+      <div class="project-card card p-3 shadow border-0 h-100">
+        <h5 class="project-title">Name: {{project.name}}</h5>
+        <p class="project-skills text-muted"><strong>Skills: </strong>{{project.skills}}</p>
+        <span class="project-badge">{{project.status}}</span>
+        <a href="mailto:{{project.email}}" class="project-link">Contact Student</a>
+      </div>
+    </div>
+
+    }
+    @if (dataService.filteredProjects().length===0) {
+      <div class="text-center py-5 w-100">
+        <div class="alert alert-warning d-inline-block p-4 shadow-sm">
+          <h4 class="alert-heading">No Projects Found</h4>
+          <p>We Couldn't find anything matching your search. Try searching for somthing else</p>
+        </div>
+      </div>
+    }
+  </div>
+</div>

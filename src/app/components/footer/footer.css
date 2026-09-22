@@ -1,0 +1,33 @@
+.media li {
+  list-style: none;
+  font-size: 30px;
+  margin: 10px;
+  transition: 0.3s;
+  border: 2px solid #000181;
+  border-radius: 50%;
+}
+
+.policy li {
+  font-size: 25px;
+  margin: 10px;
+  list-style: none;
+  color: #000181;
+  transition: 0.5s;
+}
+.policy li a{
+  color:#000181;
+}
+
+.media li:hover {
+  background-color: #000181;
+}
+li:hover i {
+  color: white;
+}
+i {
+  color: #000181;
+}
+
+.policy li:hover a{
+  text-decoration: none;
+}

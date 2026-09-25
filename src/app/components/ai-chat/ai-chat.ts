@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AiService } from '../../services/ai.service';
 import { ChatMessage } from '../../models/chat.model';
+import { RouterLink } from '@angular/router';
+import { Navbar } from '../navbar/navbar';
 
 @Component({
   selector: 'app-ai-chat',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,RouterLink,Navbar],
   templateUrl: './ai-chat.html',
   styleUrl: './ai-chat.css'
 })

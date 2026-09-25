@@ -1,14 +1,14 @@
 .media li {
   list-style: none;
-  font-size: 30px;
-  margin: 10px;
+  font-size: 20px;
+  margin: 5px;
   transition: 0.3s;
   border: 2px solid #000181;
   border-radius: 50%;
 }
 
 .policy li {
-  font-size: 25px;
+  font-size: 20px;
   margin: 10px;
   list-style: none;
   color: #000181;

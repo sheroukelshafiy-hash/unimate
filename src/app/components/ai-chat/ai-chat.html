@@ -1,43 +1,27 @@
-<div class="container my-4" style="max-width: 700px;">
-  <div class="card shadow-sm border-0">
-    <div class="card-header bg-primary text-white p-3">
-      <h5 class="mb-0 fs-6 fw-bold">🤖 المساعد الأكاديمي الذكي (UniMate AI)</h5>
-    </div>
-    
-    <div class="card-body overflow-auto p-3" style="height: 420px; background-color: #f8f9fa;">
-      @for (msg of aiService.messages(); track msg.id) {
-        <div class="d-flex mb-3" [class.justify-content-end]="msg.sender === 'user'">
-          <div class="p-3 rounded-3 shadow-sm" 
-               [class.bg-primary]="msg.sender === 'user'" 
-               [class.text-white]="msg.sender === 'user'"
-               [class.bg-white]="msg.sender === 'ai'" 
-               [class.text-dark]="msg.sender === 'ai'"
-               style="max-width: 80%;">
-            <p class="mb-1 text-wrap" style="white-space: pre-line;">{{ msg.text }}</p>
-            @if (msg.sources && msg.sources.length > 0) {
-              <small class="d-block text-muted mt-2 border-top pt-1" style="font-size: 0.75rem;">
-                📚 المصدر: {{ msg.sources.join(', ') }}
-              </small>
-            }
-          </div>
-        </div>
-      }
+<app-navbar></app-navbar>
+<div class="chat-box">
+  <div class="chat-header">
+    <h3>UniMate AI Assistant</h3>
+  </div>
 
-      @if (aiService.isLoading()) {
-        <div class="d-flex mb-3">
-          <div class="p-3 rounded-3 bg-white text-dark shadow-sm">
-            <span class="spinner-grow spinner-grow-sm text-primary me-1" role="status"></span>
-            <small class="text-muted">جاري البحث في لوائح الكلية...</small>
-          </div>
+  <div class="messages-list">
+    <div *ngFor="let msg of messages()" [class]="'msg ' + msg.sender">
+      <div class="bubble">
+        <p>{{ msg.text }}</p>
+        <div *ngIf="msg.sources && msg.sources.length" class="sources">
+          <small>المصادر: {{ msg.sources.join(', ') }}</small>
         </div>
-      }
-    </div>
-
-    <div class="card-footer bg-white p-3">
-      <div class="input-group">
-        <input #userMsgInput type="text" class="form-control" placeholder="اسأل عن اللوائح، التسجيل، أو الساعات..." (keyup.enter)="sendMessage(userMsgInput)">
-        <button class="btn btn-primary px-4" (click)="sendMessage(userMsgInput)" [disabled]="aiService.isLoading()">إرسال</button>
       </div>
     </div>
+  </div>
+
+  <div class="input-area">
+    <input 
+      type="text" 
+      [ngModel]="userInput()" 
+      (ngModelChange)="userInput.set($event)"
+      (keyup.enter)="sendMessage()"
+      placeholder="اسأل عن اللائحة أو الساعات المعتمدة..." />
+    <button (click)="sendMessage()">إرسال</button>
   </div>
 </div>

@@ -1,0 +1,89 @@
+<div class="mb-4">
+
+  <input
+    type="text"
+    placeholder="Source Name"
+    class="form-control mb-2"
+    [(ngModel)]="newSource.name"
+  >
+
+  <select
+    class="form-select mb-2"
+    [(ngModel)]="newSource.type"
+  >
+    <option value="PDF">PDF</option>
+    <option value="Link">Link</option>
+  </select>
+
+  <select
+    class="form-select mb-2"
+    [(ngModel)]="newSource.status"
+  >
+    <option value="Pending">Pending</option>
+    <option value="Active">Active</option>
+  </select>
+
+  <button class="btn btn-success"  (click)="editingSourceId === null ? addSource() : updateSource()">
+  {{ editingSourceId === null ? 'Add Source' : 'Update Source' }}
+  </button>
+</div>
+
+<div class="container mt-4">
+
+  <h2>Manage Knowledge</h2>
+
+  <p class="text-muted">
+    View and manage UniMate knowledge sources
+  </p>
+
+  <div class="table-responsive">
+
+    <table class="table table-hover">
+
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Source Name</th>
+          <th>Type</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        @for (source of sources; track source.id) {
+
+          <tr>
+
+            <td>{{ source.id }}</td>
+
+            <td>{{ source.name }}</td>
+
+            <td>{{ source.type }}</td>
+
+            <td>{{ source.status }}</td>
+
+            <td>
+
+              <button class="btn btn-primary btn-sm"(click)="editSource(source)">
+                Edit
+              </button>
+
+              <button class="btn btn-danger btn-sm ms-2" (click)="deleteSource(source.id)">
+                Delete
+              </button>
+
+            </td>
+
+          </tr>
+
+        }
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

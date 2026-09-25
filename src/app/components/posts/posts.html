@@ -1,0 +1,89 @@
+<div class="mb-4">
+
+  <input
+    type="text"
+    placeholder="Post Title"
+    class="form-control mb-2"
+    [(ngModel)]="newPost.title"
+  >
+
+  <input
+    type="text"
+    placeholder="Author"
+    class="form-control mb-2"
+    [(ngModel)]="newPost.author"
+  >
+
+  <select
+    class="form-select mb-2"
+    [(ngModel)]="newPost.status"
+  >
+    <option value="Pending">Pending</option>
+    <option value="Published">Published</option>
+  </select>
+
+  <button class="btn btn-success"  (click)="editingPostId === null ? addPost() : updatePost()">
+  {{ editingPostId === null ? 'Add Post' : 'Update Post' }}>
+  </button>
+
+</div>
+
+<div class="container mt-4">
+
+  <h2>Manage Posts</h2>
+
+  <p class="text-muted">
+    View and manage UniMate posts
+  </p>
+
+  <div class="table-responsive">
+
+    <table class="table table-hover">
+
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        @for (post of posts; track post.id) {
+
+          <tr>
+
+            <td>{{ post.id }}</td>
+
+            <td>{{ post.title }}</td>
+
+            <td>{{ post.author }}</td>
+
+            <td>{{ post.status }}</td>
+
+            <td>
+
+              <button class="btn btn-primary btn-sm">
+                Edit
+              </button>
+
+              <button class="btn btn-danger btn-sm ms-2"(click)="deletePost(post.id)">
+                Delete
+              </button>
+
+            </td>
+
+          </tr>
+
+        }
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

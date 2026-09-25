@@ -1,0 +1,82 @@
+<div class="container mt-4">
+
+  <h2>Manage Users</h2>
+  <p class="text-muted">View and manage UniMate users</p>
+
+  <div class="mb-4">
+
+    <input
+      type="text"
+      placeholder="Name"
+      class="form-control mb-2"
+      [(ngModel)]="newUser.name"
+    >
+
+    <input
+      type="email"
+      placeholder="Email"
+      class="form-control mb-2"
+      [(ngModel)]="newUser.email"
+    >
+
+    <select
+      class="form-select mb-2"
+      [(ngModel)]="newUser.role"
+    >
+      <option value="Student">Student</option>
+      <option value="Instructor">Instructor</option>
+      <option value="Admin">Admin</option>
+    </select>
+    <button
+    class="btn btn-success"
+    (click)="editingUserId === null ? addUser() : updateUser()">
+    {{ editingUserId === null ? 'Add User' : 'Update User' }}
+    </button>
+  </div>
+<div class="container mt-4">
+  <h2>Manage Users</h2>
+  <p class="text-muted">View and manage UniMate users</p>
+  <div class="table-responsive">
+
+    <table class="table table-hover">
+
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        @for (user of users; track user.id) {
+
+          <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.role }}</td>
+
+            <td>
+              <button class="btn btn-primary btn-sm" (click)="editUser(user)">
+                Edit
+              </button>
+
+              <button class="btn btn-danger btn-sm ms-2" (click)="deleteUser(user.id)">
+                Delete
+              </button>
+            </td>
+          </tr>
+
+        }
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

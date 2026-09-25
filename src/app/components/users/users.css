@@ -1,0 +1,22 @@
+.mb-4 {
+    background-color: rgb(219, 217, 217);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    max-width: 700px;
+}
+.mb-4 input,
+.mb-4 select {
+    border-radius: 10px;
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+.mb-4 button {
+    border-radius: 10px;
+    padding: 10px 25px;
+    font-weight: 600;
+}
+.mb-4 button:hover {
+    transform: translateY(-2px);
+    transition: 0.2s;
+}

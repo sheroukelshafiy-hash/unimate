@@ -9,17 +9,17 @@ import { Unaauthorized } from './components/unaauthorized/unaauthorized';
 import { ProjectSearch } from './project-search/project-search';
 import { NotFound } from './components/not-found/not-found';
 
-
 export const routes: Routes = [
   { path: '', component: Landing },
   { path: 'landing', component: Landing },
   { path: 'login', component: Login },
   { path: 'register', component: Register },
   { path: 'forgot-password', component: ForgotPassword },
+  
+{ path: 'ai-assistant', component: AiChatComponent },
   { path: 'profile', component: Profile },
-  { path: 'ai-assistant', component: AiChatComponent },
-  { path: '', redirectTo: 'ai-assistant', pathMatch: 'full' },
   { path: 'students', component: ProjectSearch },
   { path: 'unauthorized', component: Unaauthorized },
+  
   { path: '**', component: NotFound }
 ];

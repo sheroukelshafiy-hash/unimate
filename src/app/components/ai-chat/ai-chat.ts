@@ -1,22 +1,36 @@
-import { Component, inject } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { AiService } from '../../services/ai.service';
+import { ChatMessage } from '../../models/chat.model';
 
 @Component({
   selector: 'app-ai-chat',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './ai-chat.html',
   styleUrl: './ai-chat.css'
 })
 export class AiChatComponent {
-  aiService = inject(AiService);
+  private aiService = inject(AiService);
 
-  sendMessage(inputElement: HTMLInputElement) {
-    const text = inputElement.value.trim();
-    if (text) {
-      this.aiService.sendMessage(text);
-      inputElement.value = '';
-    }
+  messages = signal<ChatMessage[]>([
+    { sender: 'bot', text: 'أهلاً بك في UniMate! كيف أستطيع مساعدتك اليوم؟' }
+  ]);
+  userInput = signal<string>('');
+
+  sendMessage() {
+    const text = this.userInput().trim();
+    if (!text) return;
+
+    this.messages.update(list => [...list, { sender: 'user', text }]);
+    this.userInput.set('');
+
+    const res = this.aiService.getResponse(text);
+
+    this.messages.update(list => [
+      ...list,
+      { sender: 'bot', text: res.text, sources: res.sources }
+    ]);
   }
 }

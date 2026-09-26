@@ -18,9 +18,13 @@
     <input
       type="text"
       [ngModel]="userInput()"
+    <input 
+      type="text" 
+      [ngModel]="userInput()" 
       (ngModelChange)="userInput.set($event)"
       (keyup.enter)="sendMessage()"
       placeholder="اسأل عن اللائحة أو الساعات المعتمدة..." />
     <button (click)="sendMessage()">إرسال</button>
   </div>
+</div>
 </div>

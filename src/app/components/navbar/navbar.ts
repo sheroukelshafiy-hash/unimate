@@ -9,8 +9,8 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class Navbar {
   constructor(private router:Router){}
-  getUserRole():string|null{
-    return localStorage.getItem('role');
+  getUserRole():string{
+    return localStorage.getItem('role')||'';
   }
-  
+
 }

@@ -70,10 +70,11 @@ export class AuthService {
       localStorage.setItem('role', user.role);
       alert('Login successful!');
       return true;
-    } else {
-      alert('Invalid email or password');
-      return false;
     }
+      else{alert('Invalid email or password');
+      return false;
+      }
+
   }
 
   logout(): void {

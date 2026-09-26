@@ -11,12 +11,14 @@ import { Posts } from "./components/posts/posts";
 import { Projects } from "./components/projects/projects";
 import { Users } from "./components/users/users";
 import { authGuard } from "./guards/auth-guard";
+import { ForgotPassword } from "./components/auth/forgot-password/forgot-password";
 import { NotFound } from "./components/not-found/not-found";
 import { Profile } from "./components/auth/profile/profile";
 export const routes:Routes=[
   {path:'',redirectTo:'landing',pathMatch:'full'},
   {path:'login',component:Login},
   {path:'register',component:Register},
+  {path:'forgot-password',component:ForgotPassword},
   {path:'landing',component:Landing},
   {path:'unauthorized',component:Unaauthorized},
   {path:'ai-chat',component:AiChatComponent},

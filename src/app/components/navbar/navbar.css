@@ -1,15 +1,24 @@
-.logo{
+.navbar {
+  padding: 12px 24px;
+}
+
+.logo {
   color: #fff;
   font-weight: 500;
-  margin-left: 20px;
+  margin-right: auto;
   text-shadow: 1px 1px #000181;
   font-style: italic;
+  letter-spacing: 0.4px;
 }
-li a{
+
+li a {
   color: #fff;
   font-weight: 400;
+}
 
-
+.navbar-nav {
+  align-items: center;
+  gap: 6px;
 }
 .nav-link {
   border: 2px solid transparent;
@@ -22,4 +31,40 @@ li a{
   background-color: #000181;
   color: white;
   border-color: #000181;
+}
+
+.nav-link.active {
+  background-color: #000181;
+  border-color: #000181;
+}
+
+.navbar .btn-outline-light {
+  border-radius: 50px;
+  padding: 8px 18px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.navbar .btn-outline-light:hover {
+  color: #212529;
+  background-color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 991.98px) {
+  .navbar {
+    padding: 10px 16px;
+  }
+
+  .navbar-nav {
+    align-items: stretch;
+    gap: 2px;
+    margin-top: 12px;
+  }
+
+  .navbar .btn-outline-light {
+    margin-left: 0 !important;
+    text-align: center;
+  }
 }

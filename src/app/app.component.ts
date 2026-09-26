@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { Navbar } from './components/navbar/navbar';
 import { Footer } from './components/footer/footer';
 
@@ -11,5 +11,5 @@ import { Footer } from './components/footer/footer';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'unimate';
+  constructor(public router:Router){}
 }

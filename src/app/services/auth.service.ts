@@ -32,7 +32,7 @@ export class AuthService {
     faculty: string,
     department: string,
     level: string
-   
+
   ): void {
 
     const user = {
@@ -44,7 +44,7 @@ export class AuthService {
       university: university,
       faculty: faculty,
       role:'user',
-      
+
       level: level
     };
 
@@ -54,11 +54,18 @@ export class AuthService {
   }
 
   login(email: string, password: string): boolean {
+    const adminemail='admin@gmail.com';
+    const adminPassword='12345admin';
 
     const user = JSON.parse(localStorage.getItem('user') || 'null');
-  
+    if(email===adminemail&&password===adminPassword){
+      localStorage.setItem('isLoggedIn','true');
+      localStorage.setItem('role','admin');
+      alert('Login successful as Admin');
+      return true;
+    }
 
-    if (user && user.email === email && user.password === password) {
+    else if (user && user.email === email && user.password === password) {
       localStorage.setItem('isLoggedIn', 'true');
       localStorage.setItem('role', user.role);
       alert('Login successful!');
@@ -74,13 +81,14 @@ export class AuthService {
   }
 
 
+
   isLoggedIn(): boolean {
     return localStorage.getItem('isLoggedIn') === 'true';
   }
   getRole(): string {
     return localStorage.getItem('role') || '';
   }
-  
+
 
 }
 

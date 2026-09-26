@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
-  imports: [RouterLink],
+  imports: [RouterLink, RouterLinkActive],
   selector: 'app-navbar',
   styleUrl: './navbar.css',
   templateUrl: './navbar.html',
 })
-export class Navbar {}
+export class Navbar {
+  constructor(private router:Router){}
+  getUserRole():string|null{
+    return localStorage.getItem('role');
+  }
+  
+}

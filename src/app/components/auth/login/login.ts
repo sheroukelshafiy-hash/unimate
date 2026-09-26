@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class Login {
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService,private router:Router) {}
 
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -32,9 +32,9 @@ export class Login {
 
     if (success) {
       if (this.authService.getRole() === 'admin') {
-        window.location.href = '/admin';
+        this.router.navigate(['/dashboard']);
       } else {
-        window.location.href = '/home';
+        this.router.navigate(['/search']);
       }
     }
   }

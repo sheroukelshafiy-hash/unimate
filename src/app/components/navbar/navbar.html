@@ -1,33 +1,54 @@
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-  <div class="container">
+  <div class="container-fluid">
 
-```
-<a class="navbar-brand" href="#">UniMate Admin</a>
 
-<div class="navbar-nav">
+    ```
+    <a class="navbar-brand logo w-50">UniMate Admin</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
 
-  <a class="nav-link" routerLink="/components/dashboard">
-    Dashboard
-  </a>
+      @if (getUserRole()==='admin') {
+        <li class="nav-item">
+          <a routerLink="/dashboard" class="nav-link" routerLinkActive="active">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/knowledge" class="nav-link" routerLinkActive="active">Knowledge</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/posts" class="nav-link" routerLinkActive="active">Posts</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/projects" class="nav-link" routerLinkActive="active">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/users" class="nav-link" routerLinkActive="active">Users</a>
+        </li>
 
-  <a class="nav-link" routerLink="/components/users">
-    Users
-  </a>
 
-  <a class="nav-link" routerLink="/components/projects">
-    Projects
-  </a>
+      }
+      @else if (getUserRole()==='user') {
+        <li class="nav-item">
+          <a routerLink="/ai-chat" class="nav-link" routerLinkActive="active">AiChat</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/search" class="nav-link" routerLinkActive="active">Search Projects</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/profile" class="nav-link" routerLinkActive="active">Profile</a>
+        </li>
+      }@else {
+        <li class="nav-item">
+          <a routerLink="/login" class="btn btn-outline-light btn-sm ms-5">Login</a>
+        </li>
+      }
 
-  <a class="nav-link" routerLink="/components/posts">
-    Posts
-  </a>
 
-  <a class="nav-link" routerLink="/components/knowledge">
-    Knowledge
-  </a>
-
+    </ul>
+    ```
 </div>
-```
-
   </div>
 </nav>

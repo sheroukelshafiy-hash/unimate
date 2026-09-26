@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router';
 import { Navbar } from '../navbar/navbar';
 
 @Component({
-  imports: [RouterLink,Navbar],
+  imports: [RouterLink],
   selector: 'app-unaauthorized',
   styleUrl: './unaauthorized.css',
   templateUrl: './unaauthorized.html',

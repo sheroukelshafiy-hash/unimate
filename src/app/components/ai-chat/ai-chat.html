@@ -1,4 +1,3 @@
-<app-navbar></app-navbar>
 <div class="chat-box">
   <div class="chat-header">
     <h3>UniMate AI Assistant</h3>
@@ -16,6 +15,9 @@
   </div>
 
   <div class="input-area">
+    <input
+      type="text"
+      [ngModel]="userInput()"
     <input 
       type="text" 
       [ngModel]="userInput()" 
@@ -24,4 +26,5 @@
       placeholder="اسأل عن اللائحة أو الساعات المعتمدة..." />
     <button (click)="sendMessage()">إرسال</button>
   </div>
+</div>
 </div>
